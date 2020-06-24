@@ -41,14 +41,14 @@ namespace ClockApplication.ViewModel
 
         internal void Deinitialize()//for on closing
         {
-			if (!buttonOKClicked)
+            if (!buttonOKClicked)
             {
                 mainVM.Foreground = settings.Foreground;
                 mainVM.ClockBackground = settings.ClockBackground;
 
-				if (settings.ShowSeconds != ShowSeconds)
+                if (settings.ShowSeconds != ShowSeconds)
                     mainVM.ShowSeconds = settings.ShowSeconds;
-			}
+            }
 
             loading = true;
         }
