@@ -4,15 +4,15 @@ using System.Windows;
 
 namespace ClockApplication
 {
-	partial class SettingsWindow : Window
-	{
-		readonly Settings settings;
+    partial class SettingsWindow : Window
+    {
+        readonly Settings settings;
         readonly SettingsViewModel settingsVm;
         readonly MainWindowViewModel mainVm;
 
         internal SettingsWindow(MainWindowViewModel mainVm, Settings settings)
         {
-			InitializeComponent();
+            InitializeComponent();
 
             this.mainVm = mainVm;
             this.settings = settings;
@@ -21,16 +21,16 @@ namespace ClockApplication
             DataContext = settingsVm;
         }
 
-		private void Window_Loaded(object sender, RoutedEventArgs e)
-		{
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
             settingsVm.Initialize(settings, mainVm, result => DialogResult = result);
-		}
+        }
 
-		protected override void OnClosing(System.ComponentModel.CancelEventArgs e)
-		{
+        protected override void OnClosing(System.ComponentModel.CancelEventArgs e)
+        {
             settingsVm.Deinitialize();
 
-			base.OnClosing(e);
-		}
-	}
+            base.OnClosing(e);
+        }
+    }
 }
