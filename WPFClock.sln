@@ -4,6 +4,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 VisualStudioVersion = 15.0.28307.1145
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WpfClockApp", "WpfClock\WpfClockApp.csproj", "{DF3C63D3-E968-48BF-A3B0-517CEBAD01DE}"
+	ProjectSection(ProjectDependencies) = postProject
+		{39DC073D-2F65-41A3-881D-FFA2B6532ED4} = {39DC073D-2F65-41A3-881D-FFA2B6532ED4}
+	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "mvvm", "mvvm\mvvm.csproj", "{39DC073D-2F65-41A3-881D-FFA2B6532ED4}"
 EndProject
@@ -15,12 +18,12 @@ Global
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{DF3C63D3-E968-48BF-A3B0-517CEBAD01DE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{DF3C63D3-E968-48BF-A3B0-517CEBAD01DE}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{DF3C63D3-E968-48BF-A3B0-517CEBAD01DE}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{DF3C63D3-E968-48BF-A3B0-517CEBAD01DE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DF3C63D3-E968-48BF-A3B0-517CEBAD01DE}.Release|Any CPU.ActiveCfg = Debug|Any CPU
+		{DF3C63D3-E968-48BF-A3B0-517CEBAD01DE}.Release|Any CPU.Build.0 = Debug|Any CPU
 		{39DC073D-2F65-41A3-881D-FFA2B6532ED4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{39DC073D-2F65-41A3-881D-FFA2B6532ED4}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{39DC073D-2F65-41A3-881D-FFA2B6532ED4}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{39DC073D-2F65-41A3-881D-FFA2B6532ED4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{39DC073D-2F65-41A3-881D-FFA2B6532ED4}.Release|Any CPU.ActiveCfg = Debug|Any CPU
+		{39DC073D-2F65-41A3-881D-FFA2B6532ED4}.Release|Any CPU.Build.0 = Debug|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
