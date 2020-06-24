@@ -1,0 +1,63 @@
+﻿<Window
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:System="clr-namespace:System;assembly=System" 
+        x:Class="ClockApplication.MainWindow"
+        xmlns:behaviors="clr-namespace:MVVM;assembly=mvvm"
+        Width="220" Height="90"
+        AllowsTransparency="true"
+        ShowInTaskbar="False"    
+        Topmost="{Binding TopMost, Mode=OneWay}"
+        Top="{Binding Top, Mode=OneWay}"
+        Left="{Binding Left, Mode=OneWay}"
+        Title="{Binding Title, Mode=OneTime}"
+        WindowStyle="None" Background="{x:Null}"
+        Loaded="MainWindow_Loaded"
+        behaviors:WindowBehavior.ActivatedCommand="{Binding WindowActivatedCommand}"
+        behaviors:WindowBehavior.DeactivatedCommand="{Binding WindowDeactivatedCommand}"
+        behaviors:MouseBehavior.MouseEnterCommand="{Binding WindowActivatedCommand}"
+        behaviors:MouseBehavior.MouseLeaveCommand="{Binding WindowMouseLeaveCommand}">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="14px"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition Width="3px"/>
+            <ColumnDefinition/>
+            <ColumnDefinition Width="{Binding MarginWidth, Mode=OneWay}"/>
+            <ColumnDefinition Width="{Binding SecondsWidth, Mode=OneWay}"/>
+        </Grid.ColumnDefinitions>
+
+        <Grid.Resources>
+            <Style x:Key="{x:Type TextBlock}" TargetType="{x:Type TextBlock}">
+                <Setter Property="Foreground"  Value="{Binding Foreground, Mode=OneWay}"/>
+                <Setter Property="FontSize" Value="50"/>
+                <Setter Property="Background" Value="{Binding ClockBackground, Mode=OneWay}"/>
+                <Setter Property="TextAlignment" Value="Center"/>
+                <Setter Property="VerticalAlignment" Value="Center"/>
+                <Setter Property="Grid.Row" Value="1"/>
+                <Setter Property="behaviors:MouseBehavior.MouseMoveCommand" Value="{Binding MouseMoveCommand}"/>
+                <Setter Property="behaviors:MouseBehavior.MouseUpCommand" Value="{Binding MouseUpCommand}"/>
+                <Setter Property="behaviors:MouseBehavior.MouseLeaveCommand" Value="{Binding MouseLeaveCommand}"/>
+                <Setter Property="behaviors:MouseBehavior.MouseDownCommand" Value="{Binding MouseDownCommand}"/>
+            </Style>
+        </Grid.Resources>
+
+        <Button Grid.Column="2" Grid.ColumnSpan="3" Grid.Row="0" HorizontalAlignment="Right" 
+                Visibility="{Binding SettingsVisibility, Mode=OneWay}" Background="White"
+                Command="{Binding OpenSettingsCommand}"
+                behaviors:MouseBehavior.MouseEnterCommand="{Binding ButtonMouseEnterCommand}"
+                behaviors:MouseBehavior.MouseLeaveCommand="{Binding ButtonMouseLeaveCommand}">
+            <Image Source="Images/settings32.png" />
+        </Button>
+
+        <TextBlock Grid.Column="0" Text="{Binding Hours, Mode=OneWay}" />
+
+        <TextBlock Grid.Column="2" Text="{Binding Minutes, Mode=OneWay}" />
+
+        <TextBlock Grid.Column="4" Text="{Binding Seconds, Mode=OneWay}" />
+    </Grid>
+</Window>
