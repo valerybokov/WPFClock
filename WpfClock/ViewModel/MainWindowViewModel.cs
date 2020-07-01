@@ -68,11 +68,8 @@ namespace ClockApplication.ViewModel
                 ClockBackground = settings.ClockBackground;
                 Foreground = settings.Foreground;
 
-                top = settings.Y;
-                left = settings.X;
-
-                OnPropertyChanged(nameof(Top));
-                OnPropertyChanged(nameof(Left));
+                Top = settings.Y;
+                Left = settings.X;
             }
 
             if (settings.ShowSeconds)
@@ -101,14 +98,11 @@ namespace ClockApplication.ViewModel
                 settings.Save();
             }
         }
-        
+
         private void SetTopAndLeft()
         {
-            top = SystemParameters.PrimaryScreenHeight - (window.Height + 100);//100 условно высота панели задач
-            left = SystemParameters.PrimaryScreenWidth - (window.Width + 30);// 30 - отступ от края
-
-            OnPropertyChanged(nameof(Top));
-            OnPropertyChanged(nameof(Left));
+            Top = SystemParameters.PrimaryScreenHeight - (window.Height + 100);//100 условно высота панели задач
+            Left = SystemParameters.PrimaryScreenWidth - (window.Width + 30);// 30 - отступ от края
         }
 
         private void DataLoaded(IAsyncResult ar)
@@ -287,8 +281,24 @@ namespace ClockApplication.ViewModel
             }
         }
 
-        public double Top => top;
-        public double Left => left;
+        /// <summary>
+        /// Верхняя координата окна.
+        /// </summary>
+        /// <remarks>однонаправленная привязка не работает</remarks>
+        public double Top {
+            get => top;
+            set {
+                top = value;
+                OnPropertyChanged();
+            }
+        }
+        public double Left {
+            get => left;
+            set {
+                left = value;
+                OnPropertyChanged();
+            }
+        }
         public string Hours => hours;
         public string Minutes => minutes;
         public string Seconds => seconds;
