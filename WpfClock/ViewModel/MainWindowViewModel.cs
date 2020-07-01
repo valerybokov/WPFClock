@@ -59,15 +59,15 @@ namespace ClockApplication.ViewModel
                 --i;
             }
 
-            if (settings.IsDefault)//TODO возвращать даже для дефолтных настроек значения?
+            ClockBackground = settings.ClockBackground;
+            Foreground = settings.Foreground;
+
+            if (settings.IsDefault)
             {
                 SetTopAndLeft();
             }
             else
             {
-                ClockBackground = settings.ClockBackground;
-                Foreground = settings.Foreground;
-
                 Top = settings.Y;
                 Left = settings.X;
             }
