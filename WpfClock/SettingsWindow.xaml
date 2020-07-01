@@ -47,10 +47,12 @@
 
         <TextBlock >Цвет текста</TextBlock>
         <Rectangle behaviors:MouseBehavior.MouseUpCommand="{Binding ChangeForegroundCommand}"
+                   RadiusX="4" RadiusY="4"
                    Fill="{Binding Foreground, Mode=OneWay}"
                    Grid.Row="0" Grid.Column="1" />
         <TextBlock Grid.Row="1">Фон</TextBlock>
         <Rectangle behaviors:MouseBehavior.MouseUpCommand="{Binding ChangeBackgroundCommand}"
+                   RadiusX="4" RadiusY="4"
                    Fill="{Binding ClockBackground, Mode=OneWay}"
                    Grid.Row="1" Grid.Column="1" />
         <CheckBox IsChecked="{Binding ShowSeconds}"

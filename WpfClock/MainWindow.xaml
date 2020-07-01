@@ -45,9 +45,10 @@
                 <Setter Property="behaviors:MouseBehavior.MouseDownCommand" Value="{Binding MouseDownCommand}"/>
             </Style>
         </Grid.Resources>
-
+        
         <Button Grid.Column="2" Grid.ColumnSpan="3" Grid.Row="0" HorizontalAlignment="Right" 
-                Visibility="{Binding SettingsVisibility, Mode=OneWay}" Background="White"
+                Style="{StaticResource ButtonStyle}"
+                Visibility="{Binding SettingsVisibility, Mode=OneWay}"
                 Command="{Binding OpenSettingsCommand}"
                 behaviors:MouseBehavior.MouseEnterCommand="{Binding ButtonMouseEnterCommand}"
                 behaviors:MouseBehavior.MouseLeaveCommand="{Binding ButtonMouseLeaveCommand}">
