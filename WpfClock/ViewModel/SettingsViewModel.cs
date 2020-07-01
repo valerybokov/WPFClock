@@ -39,7 +39,10 @@ namespace ClockApplication.ViewModel
             loading = false;
         }
 
-        internal void Deinitialize()//for on closing
+        /// <summary>
+        /// Deinitialize the view model before window will be closed
+        /// </summary>
+        internal void Deinitialize()
         {
             if (!buttonOKClicked)
             {
@@ -87,7 +90,7 @@ namespace ClockApplication.ViewModel
 
             try//для создания и удаления файла
             {
-                if (Autoload)//утановить автозагрузку
+                if (Autoload)//установить автозагрузку
                 {
                     var app = System.Reflection.Assembly.GetExecutingAssembly().Location;
 

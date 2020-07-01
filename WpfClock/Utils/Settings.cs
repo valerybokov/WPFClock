@@ -5,7 +5,7 @@ namespace ClockApplication
 {
     sealed class Settings
     {
-        bool changed, autoload = true, showSeconds = true, topMost = true;
+        bool autoload = true, showSeconds = true, topMost = true;
         //#ffff5f9e - Brushes.CadetBlue
         byte fgA = 255, fgR = 95, fgG = 158, fgB = 160;
         //#ffadd8e6 - Brushes.LightBlue
@@ -42,11 +42,8 @@ namespace ClockApplication
         {
             get { return y; }
             set
-            {   if (y != value)
-                {
-                    y = value;
-                    changed = true;
-                }
+            {   
+                y = value;
             }
         }
 
@@ -55,11 +52,8 @@ namespace ClockApplication
         {
             get { return x; }
             set
-            {   if (x != value)
-                {
-                    x = value;
-                    changed = true;
-                }
+            {
+                x = value;
             }
         }
 
@@ -69,7 +63,6 @@ namespace ClockApplication
             set {
                 if (showSeconds != value){
                     showSeconds = value;
-                    changed = true;
                 }
             }
         }
@@ -79,11 +72,7 @@ namespace ClockApplication
             get { return topMost; }
             set
             {
-                if (topMost != value)
-                {
-                    topMost = value;
-                    changed = true;
-                }
+                topMost = value;
             }
         }
 
@@ -99,7 +88,6 @@ namespace ClockApplication
                     fgR = c.R;
                     fgG = c.G;
                     fgB = c.B;
-                    changed = true;
                 }
             }
         }
@@ -116,7 +104,6 @@ namespace ClockApplication
                     cfR = c.R;
                     cfG = c.G;
                     cfB = c.B;
-                    changed = true;
                 }
             }
         }
@@ -127,7 +114,6 @@ namespace ClockApplication
             set {
                 if (autoload != value){
                     autoload = value;
-                    changed = true;
                 }
             }
         }
@@ -174,8 +160,6 @@ namespace ClockApplication
                 bw.Write(topMost);
 
                 bw.Flush();
-
-                changed = false;
             }
             catch(Exception ex)
             {
@@ -186,7 +170,6 @@ namespace ClockApplication
             }
             finally
             {
-                if (fs != null) fs.Dispose();
                 if (bw != null) bw.Dispose();
             }
 
@@ -244,7 +227,6 @@ namespace ClockApplication
                 //        System.Windows.MessageBox.Show("1 path " + path + "\n" + ex.Message);
 #endif
                         //освобождаем поток, чтоб удалить файл
-                        if (fs != null) fs.Dispose();
                         if (br != null) br.Dispose();
 
                         needDispose = false;
@@ -268,9 +250,6 @@ namespace ClockApplication
                     {
                         if (needDispose)
                         {
-                            if (fs != null)
-                                fs.Dispose();
-
                             if (br != null)
                                 br.Dispose();
                         }

@@ -20,7 +20,7 @@ namespace ClockApplication.ViewModel
         string hours, minutes, seconds;
         readonly PositionHandler positionHandler;
         Window window;
-        Brush clockBackground = Brushes.White, foreground = Brushes.Blue;
+        Brush clockBackground, foreground;
         bool isLoading = true, settingsLoaded;
         Visibility bSettingsVisibility = Visibility.Hidden;
         double top, left;
@@ -42,11 +42,11 @@ namespace ClockApplication.ViewModel
 
             timerHours = new DispatcherTimer();
             timerHours.Tick += new EventHandler(HoursTimer_Tick);
-            timerHours.Interval = TimeSpan.FromSeconds(1);
+            timerHours.Interval = TimeSpan.FromSeconds(1.0);
 
             timerWindowState = new DispatcherTimer();
             timerWindowState.Tick += new EventHandler(WindowStateTimer_Tick);
-            timerWindowState.Interval = TimeSpan.FromMilliseconds(1500f);
+            timerWindowState.Interval = TimeSpan.FromMilliseconds(1500.0);
         }
 
         public void Initialize()
@@ -225,6 +225,7 @@ namespace ClockApplication.ViewModel
                 OnPropertyChanged();
             }
         }
+
         public Visibility SettingsVisibility
         {
             get => bSettingsVisibility;
@@ -284,17 +285,22 @@ namespace ClockApplication.ViewModel
         /// <summary>
         /// Верхняя координата окна.
         /// </summary>
-        /// <remarks>однонаправленная привязка не работает</remarks>
-        public double Top {
+        /// <remarks>Однонаправленная привязка не работает</remarks>
+        public double Top
+        {
             get => top;
-            set {
+            set
+            {
                 top = value;
                 OnPropertyChanged();
             }
         }
-        public double Left {
+
+        public double Left
+        {
             get => left;
-            set {
+            set
+            {
                 left = value;
                 OnPropertyChanged();
             }
