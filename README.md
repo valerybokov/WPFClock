@@ -3,10 +3,10 @@ A little clock application for windows desktop. It is written via WPF with my mv
 
 To close the application, click on it and use Alt + F4.
 
-Settings in the application:
+The settings in the application:
 - changing background and color of the digits
 - autoloading
 - show/hide seconds
 - a window of the clock is always on top
 
-![Detail View](/doc/mainview.PNG)
+![Detail View](/doc/mainview.png)
