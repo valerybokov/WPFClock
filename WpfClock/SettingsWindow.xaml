@@ -4,8 +4,11 @@
         Loaded="Window_Loaded"
         xmlns:behaviors="clr-namespace:MVVM;assembly=mvvm"
         Title="Настройки"
-        WindowStyle="ToolWindow" 
+        WindowStyle="ToolWindow" WindowStartupLocation="CenterOwner"
         Height="230" Width="260" MinWidth="200" MinHeight="230">
+    <Window.InputBindings>
+        <KeyBinding Command="{Binding KeyCommand}" Gesture="Escape"/>
+    </Window.InputBindings>
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition/>
@@ -45,7 +48,7 @@
             </Style>
         </Grid.Resources>
 
-        <TextBlock >Цвет текста</TextBlock>
+        <TextBlock>Цвет текста</TextBlock>
         <Rectangle behaviors:MouseBehavior.MouseUpCommand="{Binding ChangeForegroundCommand}"
                    RadiusX="4" RadiusY="4"
                    Fill="{Binding Foreground, Mode=OneWay}"

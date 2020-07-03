@@ -208,6 +208,8 @@ namespace ClockApplication.ViewModel
             }
         }
 
+        public ICommand KeyCommand => new Command(() => closeWindow(false));
+
         public ICommand ButtonClickCommand => new Command(OnButtonClick);
         #endregion
     }
