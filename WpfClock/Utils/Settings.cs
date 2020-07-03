@@ -5,7 +5,7 @@ namespace ClockApplication
 {
     sealed class Settings
     {
-        bool autoload = true, showSeconds = true, topMost = true;
+        bool autoload, showSeconds = true, topMost = true;
         //#ffff5f9e - Brushes.CadetBlue
         byte fgA = 255, fgR = 95, fgG = 158, fgB = 160;
         //#ffadd8e6 - Brushes.LightBlue
@@ -61,9 +61,7 @@ namespace ClockApplication
         public bool ShowSeconds {
             get { return showSeconds; }
             set {
-                if (showSeconds != value){
-                    showSeconds = value;
-                }
+                 showSeconds = value;
             }
         }
 
@@ -80,7 +78,7 @@ namespace ClockApplication
         public Brush Foreground{
             get { return new SolidColorBrush(Color.FromArgb(fgA, fgR, fgG, fgB)); } 
             set {
-                Color c = (value as SolidColorBrush).Color;
+                Color c = ((SolidColorBrush)value).Color;
 
                 if (c != Color.FromArgb(fgA, fgR, fgG, fgB))
                 {
@@ -96,7 +94,7 @@ namespace ClockApplication
         public Brush ClockBackground{
             get { return new SolidColorBrush(Color.FromArgb(cfA, cfR, cfG, cfB)); }
             set {
-                Color c = (value as SolidColorBrush).Color;
+                Color c = ((SolidColorBrush)value).Color;
 
                 if (c != Color.FromArgb(cfA, cfR, cfG, cfB))
                 {
@@ -112,9 +110,7 @@ namespace ClockApplication
         {
             get { return autoload; }
             set {
-                if (autoload != value){
-                    autoload = value;
-                }
+                 autoload = value;
             }
         }
 #endregion settings
